@@ -93,14 +93,25 @@
   
   
   
-function downloadUserInfo() {
-  const name = localStorage.getItem('userName') || '정보 없음';
-  const birth = localStorage.getItem('userBirth') || '정보 없음';
-  const phone = localStorage.getItem('userPhone') || '정보 없음';
-  const type = document.querySelector(".result-title")?.textContent || '감정유형 없음';
-  const desc = document.querySelector(".desc")?.textContent || '설명 없음';
 
-  const content = `이름: ${name}
+  function downloadUserInfo() {
+    const name = localStorage.getItem('userName') || '정보 없음';
+    const birth = localStorage.getItem('userBirth') || '정보 없음';
+    const phone = localStorage.getItem('userPhone') || '정보 없음';
+    const type = document.querySelector(".result-title")?.textContent || '감정유형 없음';
+    const desc = document.querySelector(".desc")?.textContent || '설명 없음';
+
+    const content = `이름: ${name}
+생년월일: ${birth}
+전화번호 뒷자리: ${phone}
+감정유형: ${type}
+설명: ${desc}`;
+    const newWindow = window.open('', '_blank');
+    newWindow.document.write('<pre>' + content + '</pre>');
+    newWindow.document.title = "내 감정 결과 정보";
+    newWindow.document.write('<p style="color:gray;">📱 이 창을 공유하거나 복사해서 저장해 주세요</p>');
+  }
+
 생년월일: ${birth}
 전화번호 뒷자리: ${phone}
 감정유형: ${type}
