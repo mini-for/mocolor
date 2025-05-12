@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>감정 유형 결과</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #e0f7f4, #c2f0ea);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .result-box {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .result-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .emoji {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+    .desc {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .download-btn {
+      padding: 14px 28px;
+      font-size: 1rem;
+      background-color: #4cafaa;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: all 0.3s ease;
+    }
+    .download-btn:hover {
+      background-color: #3a9c95;
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .back-btn {
+      padding: 12px 25px;
+      font-size: 1rem;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="result-box" id="resultBox">
+    <div class="result-title">🌿 회복형</div>
+    <div class="emoji">💚</div>
+    <p class="desc">치유와 균형을 중시하는 당신입니다.</p>
+  </div>
+
+  
+  <button onclick="downloadUserInfo()" class="download-btn" style="background-color: #607d8b;">내 정보 저장</button>
+
+  <button onclick="downloadResultOnly()" class="download-btn">감정 결과만 저장</button>
+  <button onclick="location.href='index.html'" class="back-btn">처음으로 돌아가기</button>
+
+  <script>
+    function downloadResultOnly() {
+      const content = `감정유형: 🌿 회복형\n설명: 치유와 균형을 중시하는 당신입니다.`;
+      const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "result_only.txt";
+      link.click();
+    }
+  
+  
+  
+function downloadUserInfo() {
+  const name = localStorage.getItem('userName') || '정보 없음';
+  const birth = localStorage.getItem('userBirth') || '정보 없음';
+  const phone = localStorage.getItem('userPhone') || '정보 없음';
+  const type = document.querySelector(".result-title")?.textContent || '감정유형 없음';
+  const desc = document.querySelector(".desc")?.textContent || '설명 없음';
+
+  const content = `이름: ${name}
+생년월일: ${birth}
+전화번호 뒷자리: ${phone}
+감정유형: ${type}
+설명: ${desc}`;
+  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+
+  // 모바일 대응: 새 창으로 열어 저장 유도
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    window.open(url, '_blank');
+  } else {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "user_info.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+  URL.revokeObjectURL(url);
+}
+
+생년월일: ${birth}
+전화번호 뒷자리: ${phone}
+감정유형: 🌿 회복형`;
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "user_info.txt";
+    link.click();
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>감정 유형 결과</title>
+  <style>
+    body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #e0f7f4, #c2f0ea);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+    .result-box {
+  margin-top: 40px;
+
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .result-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .emoji {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+
+    .desc {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .back-btn {
+      padding: 12px 25px;
+      font-size: 1rem;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background-color: #e55a4e;
+    }
+  
+<style>
+.download-btn {
+  padding: 14px 28px;
+  font-size: 1rem;
+  background-color: #4cafaa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+}
+.download-btn:hover {
+  background-color: #3a9c95;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+</style>
+
+</style>
+
+<style>
+  .result-box {
+  margin-top: 40px;
+
+    
+  }
+  
+  from { opacity: 0; transform: translateY(-100px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+<style>
+.download-btn {
+  padding: 14px 28px;
+  font-size: 1rem;
+  background-color: #4cafaa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+}
+.download-btn:hover {
+  background-color: #3a9c95;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+</style>
+
+</style>
+
+</head>
+<body>
+
+  <div class="result-box" id="resultBox">
+<div class="result-title">☀️ 즐거움형</div>
+<div class="emoji">💛</div>
+<p class="desc">유쾌하고 밝은 에너지를 지닌 당신입니다.</p>
+  </div>
+
+<button class="back-btn" style="margin-top: 60px;" style="margin-top: 40px;" onclick="location.href='index.html'">처음으로 돌아가기</button>
+
+  <script>
+    
+  const userName = localStorage.getItem('userName');
+  const userBirth = localStorage.getItem('userBirth');
+  const userInfoEl = document.getElementById('userInfo');
+  if (userName && userBirth) {
+    userInfoEl.textContent = `이름: ${userName} / 생년월일: ${userBirth}`;
+  }
+
+  // 감정유형 스크립트 제거됨
+</script>
+
+</body>
+</html>
+
+  

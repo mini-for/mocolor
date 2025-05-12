@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>나의 번지수</title>
+  <style>
+    body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #e0f7f4, #c2f0ea);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .next-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1rem;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .next-btn:hover {
+      background-color: #e45b4f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>나의 번지수</h1>
+
+  <div class="form-container">
+    <form action="question.html" method="get">
+      <label for="name">이름</label>
+      <input type="text" id="name" name="name" placeholder="홍길동" required />
+
+      <label for="birth">생년월일</label>
+      <input type="date" id="birth" name="birth" required />
+
+      <label for="phone">전화번호 뒷자리</label>
+      <input type="text" id="phone" name="phone" placeholder="1234" maxlength="4" pattern="\d{4}" required />
+
+
+      <button class="next-btn" type="submit" onclick="saveUserInfo()">다음</button>
+    </form>
+  </div>
+
+
+<script>
+  function saveUserInfo() {
+    const name = document.getElementById('name').value;
+    const birth = document.getElementById('birth').value;
+    localStorage.setItem('userName', name);
+    localStorage.setItem('userBirth', birth);
+    const phone = document.getElementById('phone').value;
+    localStorage.setItem('userPhone', phone);
+  }
+</script>
+</body>
+</html>
